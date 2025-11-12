@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: web-stack                     # Argo CD에 표시될 이름 (자유롭게 지정)
+  name: webstack                     # Argo CD에 표시될 이름 (자유롭게 지정)
   namespace: argocd                   # Argo CD가 설치된 네임스페이스
 spec:
   project: default

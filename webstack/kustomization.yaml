@@ -1,0 +1,3 @@
+resources:
+  - nginx/nginx-deployment.yaml
+  - redis/redis-deployment.yaml
