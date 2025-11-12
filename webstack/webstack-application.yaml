@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: web-stack                     # Argo CD에 표시될 이름 (자유롭게 지정)
+  namespace: argocd                   # Argo CD가 설치된 네임스페이스
+spec:
+  project: default
+  source:
+    #repoURL: https://github.com/<your-org>/<your-repo>.git   # Git 리포지토리 주소
+    repoURL: https://github.com/hellomyoh/hellomyk8s.git
+    targetRevision: main                                    # 브랜치 이름
+    path: webstack                                              # nginx, redis 둘 다 포함된 상위 폴더
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default                                      # 배포할 네임스페이스
+  syncPolicy:
+    automated:
+      prune: true                                           # 불필요 리소스 자동 삭제
+      selfHeal: true                                        # Drift(불일치) 자동 복원
+
