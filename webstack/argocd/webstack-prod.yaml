@@ -36,8 +36,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-  syncPolicy:
-    automated:
-      prune: true                                           # 불필요 리소스 자동 삭제
-      selfHeal: true                                        # Drift(불일치) 자동 복원
 
