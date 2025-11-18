@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: webstack-prod
+  namespace: argocd
+spec:
+  project: webstack-prod
+  source:
+    repoURL: https://github.com/hellomyoh/hellomyk8s.git
+    targetRevision: main
+    path: webstack/overlays/prod
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: webstack-prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  syncPolicy:
+    automated:
+      prune: true                                           # 불필요 리소스 자동 삭제
+      selfHeal: true                                        # Drift(불일치) 자동 복원
+
