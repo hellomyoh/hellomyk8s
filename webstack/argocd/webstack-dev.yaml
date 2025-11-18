@@ -1,3 +1,21 @@
+# AppProject
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: webstack-dev
+  namespace: argocd
+spec:
+  sourceRepos:
+    - "*"
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: webstack-dev
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+---
+# Application
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
