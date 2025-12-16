@@ -10,4 +10,4 @@ kind: Deployment
 metadata:
   name: redis
 spec:
-  replicas: 1
+  replicas: 3
